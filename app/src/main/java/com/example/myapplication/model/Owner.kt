@@ -2,7 +2,7 @@ package com.example.myapplication.model
 
 
 import com.google.gson.annotations.SerializedName
-
+@Parcelize
 data class Owner(
     @SerializedName("avatar_url")
     val avatarUrl: String? = "",

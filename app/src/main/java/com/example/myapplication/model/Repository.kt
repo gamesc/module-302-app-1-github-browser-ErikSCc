@@ -1,9 +1,9 @@
 package com.example.myapplication.model
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-
-
+@Parcelize
 data class Repository(
     @SerializedName("archive_url")
     val archiveUrl: String? = "",
@@ -151,4 +151,4 @@ data class Repository(
     val watchers: Int? = 0,
     @SerializedName("watchers_count")
     val watchersCount: Int? = 0
-)
+):Parcelable
