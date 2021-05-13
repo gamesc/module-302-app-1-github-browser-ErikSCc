@@ -3,6 +3,8 @@ package com.example.myapplication.model
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
+
 @Parcelize
 data class Repository(
     @SerializedName("archive_url")
@@ -100,7 +102,7 @@ data class Repository(
     @SerializedName("milestones_url")
     val milestonesUrl: String? = "",
     @SerializedName("mirror_url")
-    val mirrorUrl: Any? = Any(),
+    val mirrorUrl: String? = "",
     @SerializedName("name")
     val name: String? = "",
     @SerializedName("node_id")
