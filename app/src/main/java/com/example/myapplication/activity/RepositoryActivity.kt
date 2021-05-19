@@ -2,6 +2,7 @@ package com.example.myapplication.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.TextView
 import com.example.myapplication.R
 import com.example.myapplication.model.Repository
 
@@ -10,9 +11,12 @@ class RepositoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_repository)
 
-        val listOfRepos=intent?.getParcelableArrayListExtra<Repository>("keyRepositoryData")
-        listOfRepos.let{
+        val listOfRepos=intent?.getParcelableArrayListExtra<Repository>(KEY_REPOSITORY_DATA)
+        listOfRepos?.let{
 
+            val numberOfRepositories=getString(R.string.number_of_repos,it.size)
+
+           findViewById<TextView>(R.id.textViewNumberOfRepos)?.text=numberOfRepositories
         }
     }
     companion object{

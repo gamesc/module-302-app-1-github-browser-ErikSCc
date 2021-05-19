@@ -63,11 +63,17 @@ class MainActivity : AppCompatActivity(),TextView.OnEditorActionListener {
                     response: Response<List<Repository>>
                 ) {
                     progressBar?.visibility=View.INVISIBLE
+
+
                     if (response.isSuccessful){
+
                         val listOfRepos=response.body() as? ArrayList<Repository>
-                       listOfRepos.let {
+
+                       listOfRepos?.let {
+
                            val intent=Intent(this@MainActivity,RepositoryActivity::class.java)
-                           intent.putParcelableArrayListExtra(KEY_REPOSITORY_DATA)
+
+                           intent.putParcelableArrayListExtra(RepositoryActivity.KEY_REPOSITORY_DATA, it)
                            startActivity(intent)
                        }
                 } else {
