@@ -2,7 +2,6 @@ package com.example.myapplication.activity
 
 import android.content.Context
 import android.content.Intent
-import android.nfc.Tag
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -33,9 +32,9 @@ class MainActivity : AppCompatActivity(), TextView.OnEditorActionListener {
 
         editTextUsername = findViewById(R.id.editTextusername)
         progressBar = findViewById(R.id.progressBar)
+
         editTextUsername?.setOnEditorActionListener(this)
         imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-
     }
 
     override fun onResume() {
@@ -53,7 +52,6 @@ class MainActivity : AppCompatActivity(), TextView.OnEditorActionListener {
                 progressBar?.visibility = View.VISIBLE
                 getRepositoriesForUsername(username)
             }
-
             true
         } else {
             false
@@ -70,18 +68,12 @@ class MainActivity : AppCompatActivity(), TextView.OnEditorActionListener {
                     response: Response<List<Repository>>
                 ) {
                     progressBar?.visibility = View.INVISIBLE
-
-
                     if (response.isSuccessful) {
-
                         val listOfRepos = response.body() as? ArrayList<Repository>
-
                         listOfRepos?.let {
-
                             val intent = Intent(this@MainActivity, RepositoryActivity::class.java)
-
                             intent.putParcelableArrayListExtra(
-                                RepositoryActivity.KEY_REPOSITORY_DATA,
+                                KEY_REPOSITORY_DATA,
                                 it
                             )
                             startActivity(intent)
@@ -110,7 +102,6 @@ class MainActivity : AppCompatActivity(), TextView.OnEditorActionListener {
                     ).show()
                 }
             })
-
     }
 
     companion object {

@@ -16,16 +16,13 @@ class RepositoryActivity : AppCompatActivity() {
 
         val listOfRepos = intent?.getParcelableArrayListExtra<Repository>(KEY_REPOSITORY_DATA)
         listOfRepos?.let {
-
             val numberOfRepositories = getString(R.string.number_of_repos, it.size)
-
             findViewById<TextView>(R.id.textViewNumberOfRepos)?.text = numberOfRepositories
             showRepos(it)
         }
     }
 
     private fun showRepos(ListOfRepositories: ArrayList<Repository>) {
-
         val recycleViewAdapter = RepositoryRecycleviewAdapter(ListOfRepositories)
         val recycleView = findViewById<RecyclerView>(R.id.recyclerview)
         recycleView?.apply {
