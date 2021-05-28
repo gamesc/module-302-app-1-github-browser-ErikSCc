@@ -14,27 +14,29 @@ class RepositoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_repository)
 
-        val listOfRepos=intent?.getParcelableArrayListExtra<Repository>(KEY_REPOSITORY_DATA)
-        listOfRepos?.let{
+        val listOfRepos = intent?.getParcelableArrayListExtra<Repository>(KEY_REPOSITORY_DATA)
+        listOfRepos?.let {
 
-            val numberOfRepositories=getString(R.string.number_of_repos,it.size)
+            val numberOfRepositories = getString(R.string.number_of_repos, it.size)
 
-           findViewById<TextView>(R.id.textViewNumberOfRepos)?.text=numberOfRepositories
+            findViewById<TextView>(R.id.textViewNumberOfRepos)?.text = numberOfRepositories
             showRepos(it)
         }
     }
-    private fun showRepos(ListOfRepositories:ArrayList<Repository>){
 
-        val recycleViewAdapter=RepositoryRecycleviewAdapter(ListOfRepositories)
-        val recycleView=findViewById<RecyclerView>(R.id.recyclerview)
+    private fun showRepos(ListOfRepositories: ArrayList<Repository>) {
+
+        val recycleViewAdapter = RepositoryRecycleviewAdapter(ListOfRepositories)
+        val recycleView = findViewById<RecyclerView>(R.id.recyclerview)
         recycleView?.apply {
-            adapter=recycleViewAdapter
+            adapter = recycleViewAdapter
             setHasFixedSize(true)
-            layoutManager=LinearLayoutManager(context)
+            layoutManager = LinearLayoutManager(context)
         }
 
     }
-    companion object{
-        const val KEY_REPOSITORY_DATA="keyRepositoryData"
+
+    companion object {
+        const val KEY_REPOSITORY_DATA = "keyRepositoryData"
     }
 }

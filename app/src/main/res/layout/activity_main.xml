@@ -3,32 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:layout_margin="20dp"
+    android:gravity="center"
+    android:orientation="vertical"
 
     tools:context=".activity.MainActivity">
 
     <ImageView
-        android:src="@drawable/github"
         android:layout_width="150dp"
-        android:layout_height="150dp"/>
+        android:layout_height="150dp"
+        android:src="@drawable/github" />
+
     <EditText
         android:id="@+id/editTextusername"
-        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text"
+        android:layout_marginTop="40dp"
         android:hint="@string/enter_a_github_username"
-        android:maxLines="1"
-        android:imeOptions="actionSearch"/>
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:maxLines="1" />
 
     <ProgressBar
         android:id="@+id/progressBar"
-        android:layout_marginTop="20dp"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:visibility="invisible"/>
+        android:layout_marginTop="20dp"
+        android:visibility="invisible" />
 
 
 </LinearLayout>
